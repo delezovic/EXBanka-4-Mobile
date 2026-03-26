@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import { useAuth } from '../../context/AuthContext';
 import { getMyAccounts } from '../../services/accountService';
 import { getPayments, getRecipients, getTransfers } from '../../services/paymentService';
@@ -145,8 +146,8 @@ export default function DashboardScreen({ navigation }) {
   }
 
   return (
+    <SafeAreaView style={styles.container}>
     <ScrollView
-      style={styles.container}
       contentContainerStyle={styles.content}
       refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} tintColor={colors.primary} />}
     >
@@ -222,13 +223,14 @@ export default function DashboardScreen({ navigation }) {
             renderItem={({ item }) => (
               <RecipientChip
                 recipient={item}
-                onPress={() => navigation.navigate('PaymentsTab', { screen: 'NewPayment', params: { recipient: item } })}
+                onPress={() => navigation.navigate('PaymentsTab', { screen: 'NewPayment', params: { recipientName: item.name, recipientAccount: item.accountNumber } })}
               />
             )}
           />
         </>
       )}
     </ScrollView>
+    </SafeAreaView>
   );
 }
 

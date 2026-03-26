@@ -37,7 +37,10 @@ export default function LoginScreen({ navigation }) {
       }
       // SUCCESS handled by AuthContext — AppNavigator switches to MainTabs automatically
     } catch (err) {
-      const msg = err.response?.data?.error || 'Pogrešni podaci';
+      const raw = err.response?.data?.error ?? '';
+      const msg = raw === 'invalid credentials'
+        ? 'Pogrešni podaci za prijavu.'
+        : raw || 'Pogrešni podaci za prijavu.';
       Alert.alert('Greška pri prijavi', msg);
     } finally {
       setLoading(false);

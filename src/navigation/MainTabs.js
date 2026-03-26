@@ -35,15 +35,15 @@ const Stack = createNativeStackNavigator();
 
 function DashboardStack() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Dashboard" component={DashboardScreen} options={{ title: 'Početna' }} />
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Dashboard" component={DashboardScreen} />
     </Stack.Navigator>
   );
 }
 
 function AccountsStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: true }}>
       <Stack.Screen name="Accounts"        component={AccountsScreen}       options={{ title: 'Računi' }} />
       <Stack.Screen name="AccountDetail"   component={AccountDetailScreen}  options={{ title: 'Detalji računa' }} />
       <Stack.Screen name="RenameAccount"   component={RenameAccountScreen}  options={{ title: 'Promena naziva' }} />
@@ -55,7 +55,7 @@ function AccountsStack() {
 
 function PaymentsStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: true }}>
       <Stack.Screen name="Payments"        component={PaymentsScreen}       options={{ title: 'Plaćanja' }} />
       <Stack.Screen name="PaymentDetail"   component={PaymentDetailScreen}  options={{ title: 'Detalji plaćanja' }} />
       <Stack.Screen name="NewPayment"      component={NewPaymentScreen}     options={{ title: 'Novo plaćanje' }} />
@@ -72,7 +72,7 @@ function PaymentsStack() {
 
 function CardsStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: true }}>
       <Stack.Screen name="Cards"       component={CardsScreen}       options={{ title: 'Kartice' }} />
       <Stack.Screen name="CardDetail"  component={CardDetailScreen}  options={{ title: 'Detalji kartice' }} />
       <Stack.Screen name="CardRequest" component={CardRequestScreen} options={{ title: 'Zahtev za karticu' }} />
@@ -82,7 +82,7 @@ function CardsStack() {
 
 function MoreStack() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator screenOptions={{ headerShown: true }}>
       <Stack.Screen name="More"               component={MoreScreen}              options={{ title: 'Više' }} />
       <Stack.Screen name="Approvals"          component={ApprovalsScreen}         options={{ title: 'Verifikacija' }} />
       <Stack.Screen name="ApprovalDetail"     component={ApprovalDetailScreen}    options={{ title: 'Detalji zahteva' }} />

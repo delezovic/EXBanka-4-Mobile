@@ -20,7 +20,7 @@ export default function AppNavigator() {
       pendingApprovalRef.current = null;
       // Small delay to let MainTabs mount
       setTimeout(() => {
-        navigationRef.current?.navigate('ApprovalsTab', {
+        navigationRef.current?.navigate('MoreTab', {
           screen: 'ApprovalDetail',
           params: { approvalId },
         });
@@ -35,7 +35,7 @@ export default function AppNavigator() {
       if (!approvalId) return;
 
       if (user && navigationRef.current) {
-        navigationRef.current.navigate('ApprovalsTab', {
+        navigationRef.current.navigate('MoreTab', {
           screen: 'ApprovalDetail',
           params: { approvalId },
         });
