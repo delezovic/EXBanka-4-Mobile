@@ -208,7 +208,6 @@ export default function DashboardScreen({ navigation }) {
       <View style={styles.quickRow}>
         <QuickAction label="Novo plaćanje" onPress={() => navigation.navigate('PaymentsTab', { screen: 'NewPayment' })} />
         <QuickAction label="Transfer"      onPress={() => navigation.navigate('PaymentsTab', { screen: 'NewTransfer' })} />
-        <QuickAction label="Menjačnica"    onPress={() => navigation.navigate('MoreTab', { screen: 'ExchangeRates' })} />
       </View>
 
       {recipients.length > 0 && (
